@@ -3,7 +3,7 @@ const  express = require('express')
 const cors = require('cors')
 
 const {PORT} = process.env
-const {getAllPosts, getCurrentUserPosts, addPost, editPost, deletePost} = require('./controllers/post')
+const {getAllPosts, getCurrentUserPosts, addPost, editPost, deletePost} = require('./controllers/posts')
 const {register, login} = require('./controllers/auth')
 const {isAuthenticated} = require('./middleware/isAuthenticated')
 const {db} = require('./util/database')
