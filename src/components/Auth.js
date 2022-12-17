@@ -12,38 +12,18 @@ const Auth = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const url = "https://socialmtn.devmountain.com";
+    const url = `http://localhost:5000`;
     const body = { username, password };
 
     axios
       .post(register ? `${url}/register` : `${url}/login`, body)
       .then((res) => {
-          authCtx.login(res.data.token, res.data.exp, res.data.userId)
-        console.log(res.data);
+        authCtx.login(res.data.token, res.data.exp, res.data.userId);
       })
       .catch((err) => {
         setUsername("");
         setPassword("");
       });
-    // if(register){
-    //     axios.post(url + '/register', {
-    //         username, password
-    //     }).then(res => console.log(res.data))
-    //     .catch(err => {
-    //         setUsername('')
-    //         setPassword('')
-    //     })
-    // } else {
-    //     axios.post(url + '/login', {
-    //         username, password
-    //     }).then(res => console.log(res.data))
-    //     .catch(err => {
-    //         setUsername('')
-    //         setPassword('')
-    //     })
-    // }
-
-    console.log("submitHandler called");
   };
 
   return (
@@ -51,20 +31,19 @@ const Auth = () => {
       <h1>Welcome!</h1>
       <form className="form auth-form" onSubmit={submitHandler}>
         <input
-          className="form-input"
+          type="text"
           placeholder="Username"
           value={username}
-          type="text"
           onChange={(e) => setUsername(e.target.value)}
+          className="form-input"
         />
         <input
-          className="form-input"
+          type="password"
           placeholder="Password"
           value={password}
-          type="password"
           onChange={(e) => setPassword(e.target.value)}
+          className="form-input"
         />
-        {console.log(username, password)}
         <button className="form-btn">{register ? "Sign Up" : "Login"}</button>
       </form>
       <button className="form-btn" onClick={() => setRegister(!register)}>

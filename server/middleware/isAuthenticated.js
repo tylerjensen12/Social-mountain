@@ -10,7 +10,7 @@ module.exports = {
 
         if (!headerToken) {
             //checking for the headerToken and if its not there. There's a problem.
-            console.log('ERROR IN auth middleware')
+            console.log('Error in middleware')
             res.sendStatus(401)
         }
 

@@ -1,5 +1,5 @@
-const User = require("../models/user");
-const Post = require("../models/post");
+const {User} = require("../models/user");
+const {Post} = require("../models/post");
 
 module.exports = {
   getAllPosts: async (req, res) => {
@@ -15,10 +15,8 @@ module.exports = {
         ],
       });
       res.status(200).send(posts);
-    } catch (error) {
-      console.log("ERROR IN getAllPosts");
-      console.log(error);
-      res.sendStatus(400);
+    } catch (err) {
+      console.log(err);
     }
   },
 
@@ -36,10 +34,8 @@ module.exports = {
         ],
       });
       res.status(200).send(posts);
-    } catch (error) {
-      console.log("ERROR IN getCurrentUserPosts");
-      console.log(error);
-      res.sendStatus(400);
+    } catch (err) {
+      console.log(err);
     }
   },
 
